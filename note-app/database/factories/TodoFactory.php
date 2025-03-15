@@ -5,9 +5,9 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Note>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Todo>
  */
-class NoteFactory extends Factory
+class TodoFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -17,9 +17,10 @@ class NoteFactory extends Factory
     public function definition(): array
     {
         return [
-            'note' => fake()->realText(2000),
-            
-
+            'name' => fake()->realText(2000),
+            'done' => 1,
+            'urgent' => 0,
+            'dateComleted' => fake()->dateTime('now'),
         ];
     }
 }

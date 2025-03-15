@@ -6,7 +6,7 @@ use App\Models\User;
 use App\Models\Note;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-
+use App\Models\Todo;
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -18,7 +18,6 @@ class DatabaseSeeder extends Seeder
 
         User::factory()->create([
             // Пока что хардкодим айдишку
-            'id' => 1,
             'name' => 'Test User',
             'email' => 'test@example.com',
             // и хардкодим пароль
@@ -27,5 +26,7 @@ class DatabaseSeeder extends Seeder
 
         // Создаем 100 заметок для теста
         Note::factory(100)->create();
+
+        Todo::factory(100)->create();
     }
 }

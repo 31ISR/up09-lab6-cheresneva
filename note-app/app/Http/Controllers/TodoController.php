@@ -12,9 +12,9 @@ class TodoController extends Controller
      */
     public function index()
     {
-        return view('todo.index');
+    $todos = Todo::query()->orderBy('created_at', 'desc')->paginate();
+    return view('todo.index', ['todos' => $todos]);
     }
-
     /**
      * Show the form for creating a new resource.
      */
@@ -36,15 +36,14 @@ class TodoController extends Controller
      */
     public function show(Todo $todo)
     {
-        return view('todo.show');
+        return view('todo.show', ['todo' => $todo]);
     }
-
     /**
      * Show the form for editing the specified resource.
      */
     public function edit(Todo $todo)
     {
-        return view('todo.edit');
+        return view('todo.edit', ['todo' => $todo]);
     }
 
     /**
